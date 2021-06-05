@@ -58,11 +58,14 @@ RUN apt-get update
 RUN mkdir -p /usr/share/man/man1
 
 # Install software via APT
-# zulu-12 is java
 RUN apt-get install --assume-yes --no-install-recommends --no-show-upgraded \
-    zulu-12 \
     wine32 \
     dotnet-sdk-2.2
 
 # Upgrade pip and install pip-install requirements
 RUN python3 -m pip install --upgrade pip pipenv
+
+# Install Zulu for Java 16
+RUN wget https://cdn.azul.com/zulu/bin/zulu16.30.15-ca-jre16.0.1-linux_amd64.deb \
+	&& apt install ./zulu16.30.15-ca-jre16.0.1-linux_amd64.deb \
+	&& rm ./zulu16.30.15-ca-jre16.0.1-linux_amd64.deb
