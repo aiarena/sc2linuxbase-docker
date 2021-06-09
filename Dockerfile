@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3.9-slim
 MAINTAINER AI Arena <staff@aiarena.net>
 
 USER root
@@ -67,5 +67,5 @@ RUN python3 -m pip install --upgrade pip pipenv
 
 # Install Zulu for Java 16
 RUN wget https://cdn.azul.com/zulu/bin/zulu16.30.15-ca-jre16.0.1-linux_amd64.deb \
-	&& apt install ./zulu16.30.15-ca-jre16.0.1-linux_amd64.deb \
+	&& apt install --assume-yes ./zulu16.30.15-ca-jre16.0.1-linux_amd64.deb \
 	&& rm ./zulu16.30.15-ca-jre16.0.1-linux_amd64.deb
