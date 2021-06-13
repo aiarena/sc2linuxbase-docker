@@ -57,6 +57,10 @@ RUN apt-get update
 # Needed for Java install
 RUN mkdir -p /usr/share/man/man1
 
+# Install nodejs
+RUN apt-get install --assume-yes --no-install-recommends --no-show-upgraded npm
+
+
 # Install software via APT
 RUN apt-get install --assume-yes --no-install-recommends --no-show-upgraded \
     wine32 \
